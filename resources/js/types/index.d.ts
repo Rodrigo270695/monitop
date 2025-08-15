@@ -20,6 +20,7 @@ export interface NavItem {
     href: string;
     icon?: LucideIcon | null;
     isActive?: boolean;
+    children?: NavItem[];
 }
 
 export interface SharedData {
@@ -28,6 +29,14 @@ export interface SharedData {
     auth: Auth;
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
+    permissions: {
+        userPermissions: string[];
+        userRoles: string[];
+        availableModules: string[];
+    };
+    navigation: {
+        mainNavItems: NavItem[];
+    };
     [key: string]: unknown;
 }
 

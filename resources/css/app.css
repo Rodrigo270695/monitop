@@ -49,6 +49,20 @@
     --color-chart-4: var(--chart-4);
     --color-chart-5: var(--chart-5);
 
+    /* Custom badge colors for dark mode */
+    --badge-blue: oklch(0.7 0.15 250);
+    --badge-green: oklch(0.7 0.15 150);
+    --badge-purple: oklch(0.7 0.15 280);
+    --badge-orange: oklch(0.8 0.15 60);
+    --badge-pink: oklch(0.8 0.15 330);
+
+    /* Custom badge colors */
+    --badge-blue: oklch(0.6 0.15 250);
+    --badge-green: oklch(0.6 0.15 150);
+    --badge-purple: oklch(0.6 0.15 280);
+    --badge-orange: oklch(0.7 0.15 60);
+    --badge-pink: oklch(0.7 0.15 330);
+
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -66,7 +80,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: oklch(0.55 0.15 250);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -87,7 +101,7 @@
     --radius: 0.625rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary: oklch(0.55 0.15 250);
     --sidebar-primary-foreground: oklch(0.985 0 0);
     --sidebar-accent: oklch(0.97 0 0);
     --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -102,8 +116,8 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.145 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.985 0 0);
-    --primary-foreground: oklch(0.205 0 0);
+    --primary: oklch(0.7 0.15 250);
+    --primary-foreground: oklch(0.145 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
@@ -122,8 +136,8 @@
     --chart-5: oklch(0.645 0.246 16.439);
     --sidebar: oklch(0.205 0 0);
     --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.985 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.7 0.15 250);
+    --sidebar-primary-foreground: oklch(0.145 0 0);
     --sidebar-accent: oklch(0.269 0 0);
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(0.269 0 0);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Helpers\PermissionHelper;
+use App\Helpers\MenuHelper;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -51,6 +53,20 @@ class HandleInertiaRequests extends Middleware
                 'location' => $request->url(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'permissions' => [
+                'userPermissions' => PermissionHelper::getUserPermissions(),
+                'userRoles' => PermissionHelper::getUserRoles(),
+                'availableModules' => PermissionHelper::getAvailableModules(),
+            ],
+            'navigation' => [
+                'mainNavItems' => MenuHelper::getMainNavItems(),
+            ],
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'error' => fn () => $request->session()->get('error'),
+                'warning' => fn () => $request->session()->get('warning'),
+                'info' => fn () => $request->session()->get('info'),
+            ],
         ];
     }
 }
