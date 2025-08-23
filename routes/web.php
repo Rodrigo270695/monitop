@@ -13,9 +13,13 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard')->middleware('auth');
 
     // Users Management
-    Route::get('users', function () {
-        return Inertia::render('users/index');
-    })->name('users.index')->middleware('auth');
+    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::get('users/create', [\App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+    Route::post('users', [\App\Http\Controllers\UserController::class, 'store'])->name('users.store');
+    Route::get('users/{user}/edit', [\App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+    Route::put('users/{user}', [\App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+    Route::delete('users/{user}', [\App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
+    Route::post('users/{user}/roles', [\App\Http\Controllers\UserController::class, 'updateRoles'])->name('users.roles.update');
 
     // Roles Management
     Route::middleware(['auth'])->group(function () {

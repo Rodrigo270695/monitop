@@ -1,21 +1,39 @@
-import { ProtectedPage } from '@/components/auth/protected-page';
+import { Head } from '@inertiajs/react';
+import AppLayout from '@/layouts/app-layout';
+import { UsersIndex } from '@/components/users/index';
+import { type BreadcrumbItem } from '@/types';
 
-export default function UsersIndex() {
+interface User {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+    roles_count: number;
+    created_at: string;
+    updated_at: string;
+}
+
+interface Props {
+    users: {
+        data: User[];
+        current_page: number;
+        last_page: number;
+        per_page: number;
+        total: number;
+    };
+}
+
+export default function UsersPage({ users }: Props) {
+    const breadcrumbs: BreadcrumbItem[] = [
+        { title: 'Dashboard', href: '/dashboard' },
+        { title: 'Gestión de Usuarios', href: '/users' },
+    ];
+
     return (
-        <ProtectedPage permission="usuarios.view">
-            <div className="space-y-6 p-6">
-                <div>
-                    <h1 className="text-2xl font-bold text-slate-900">Gestión de Usuarios</h1>
-                    <p className="text-slate-600">Administra los usuarios del sistema</p>
-                </div>
-
-                <div className="bg-white rounded-lg shadow p-6">
-                    <p className="text-slate-600">
-                        Esta es la página de gestión de usuarios. Aquí puedes administrar todos los usuarios del sistema.
-                    </p>
-                </div>
-            </div>
-        </ProtectedPage>
+        <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title="Gestión de Usuarios" />
+            <UsersIndex users={users} />
+        </AppLayout>
     );
 }
 

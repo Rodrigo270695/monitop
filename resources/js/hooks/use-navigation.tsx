@@ -13,12 +13,18 @@ export function useNavigation() {
             icon: LayoutGrid,
         }] : []),
 
-        // Menú de Usuarios - solo si tiene permiso
-        ...(hasPermission('usuarios.view') ? [{
-            title: 'Usuarios',
-            href: '/users',
-            icon: Users,
+        // Menú de Administración - solo si tiene permisos de administración
+        ...(hasPermission('usuarios.view') || hasPermission('roles.view') ? [{
+            title: 'Administración',
+            href: '#',
+            icon: Shield,
             children: [
+                // Submenú de Gestión de Usuarios - solo si tiene permiso
+                ...(hasPermission('usuarios.view') ? [{
+                    title: 'Gestión de Usuarios',
+                    href: '/users',
+                    icon: Users,
+                }] : []),
                 // Submenú de Gestión de Roles - solo si tiene permiso
                 ...(hasPermission('roles.view') ? [{
                     title: 'Gestión de Roles',

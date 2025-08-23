@@ -17,12 +17,12 @@ class PermissionSeeder extends Seeder
         // Crear permisos para menús principales
         $menuPermissions = [
             'dashboard.view' => 'Ver Dashboard',
-            'usuarios.view' => 'Ver Menú Usuarios',
         ];
 
         // Crear permisos para submenús
         $submenuPermissions = [
             'roles.view' => 'Ver Gestión de Roles',
+            'usuarios.view' => 'Ver Gestión de Usuarios',
         ];
 
         // Crear permisos para acciones específicas
@@ -31,6 +31,10 @@ class PermissionSeeder extends Seeder
             'roles.edit' => 'Editar Roles',
             'roles.delete' => 'Eliminar Roles',
             'roles.assign-permissions' => 'Asignar Permisos a Roles',
+            'usuarios.create' => 'Crear Usuarios',
+            'usuarios.edit' => 'Editar Usuarios',
+            'usuarios.delete' => 'Eliminar Usuarios',
+            'usuarios.assign-roles' => 'Asignar Roles a Usuarios',
         ];
 
         // Combinar todos los permisos

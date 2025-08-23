@@ -11,8 +11,6 @@ import {
     LayoutDashboard,
     Users,
     Shield,
-    Settings,
-    Eye,
     Plus,
     Edit,
     Trash2,
@@ -44,16 +42,20 @@ interface Props {
 const permissionsData = {
     menus: [
         { id: 1, name: 'dashboard.view', description: 'Ver Dashboard', icon: LayoutDashboard, category: 'menu' as const },
-        { id: 2, name: 'usuarios.view', description: 'Ver Menú Usuarios', icon: Users, category: 'menu' as const },
     ],
     submenus: [
         { id: 3, name: 'roles.view', description: 'Ver Gestión de Roles', icon: Shield, category: 'submenu' as const },
+        { id: 4, name: 'usuarios.view', description: 'Ver Gestión de Usuarios', icon: Users, category: 'submenu' as const },
     ],
     actions: [
-        { id: 4, name: 'roles.create', description: 'Crear Roles', icon: Plus, category: 'action' as const },
-        { id: 5, name: 'roles.edit', description: 'Editar Roles', icon: Edit, category: 'action' as const },
-        { id: 6, name: 'roles.delete', description: 'Eliminar Roles', icon: Trash2, category: 'action' as const },
-        { id: 7, name: 'roles.assign-permissions', description: 'Asignar Permisos a Roles', icon: Key, category: 'action' as const },
+        { id: 5, name: 'roles.create', description: 'Crear Roles', icon: Plus, category: 'action' as const },
+        { id: 6, name: 'roles.edit', description: 'Editar Roles', icon: Edit, category: 'action' as const },
+        { id: 7, name: 'roles.delete', description: 'Eliminar Roles', icon: Trash2, category: 'action' as const },
+        { id: 8, name: 'roles.assign-permissions', description: 'Asignar Permisos a Roles', icon: Key, category: 'action' as const },
+        { id: 9, name: 'usuarios.create', description: 'Crear Usuarios', icon: Plus, category: 'action' as const },
+        { id: 10, name: 'usuarios.edit', description: 'Editar Usuarios', icon: Edit, category: 'action' as const },
+        { id: 11, name: 'usuarios.delete', description: 'Eliminar Usuarios', icon: Trash2, category: 'action' as const },
+        { id: 12, name: 'usuarios.assign-roles', description: 'Asignar Roles a Usuarios', icon: Key, category: 'action' as const },
     ]
 };
 
@@ -104,7 +106,7 @@ export function RolePermissionsModal({ isOpen, onClose, role }: Props) {
                     // El toast se mostrará automáticamente desde el flash message
                     onClose();
                 },
-                onError: (errors) => {
+                onError: () => {
                     toast({
                         title: "Error",
                         description: "Error al actualizar los permisos",
@@ -112,7 +114,7 @@ export function RolePermissionsModal({ isOpen, onClose, role }: Props) {
                     });
                 }
             });
-        } catch (error) {
+        } catch {
             toast({
                 title: "Error",
                 description: "Error inesperado al guardar permisos",
